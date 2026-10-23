@@ -8,7 +8,7 @@ A school project focused on building a fully functional administration and user 
 * **ORM:** Lucid ORM
 * **Development Environment:** WebStorm + WSL (Ubuntu)
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Install dependencies:**
    ```bash
@@ -26,7 +26,7 @@ A school project focused on building a fully functional administration and user 
 The application will run at http://localhost:3333.
 
 
-## ⚙️ Features
+## Features
 **User Authentication:** User login and access protection.
 
 **User Management (CRUD):** Displaying a list of registered users from the SQLite database, with functionality to add and delete accounts.
