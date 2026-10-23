@@ -1,0 +1,36 @@
+@component('layouts/app')
+  <div class="max-w-4xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
+    <h1 class="text-2xl font-bold mb-6">Správa uživatelů</h1>
+
+    @if(flashMessages.has('success'))
+      <div class="mb-4 p-4 bg-green-100 text-green-700 rounded">
+        {{ flashMessages.get('success') }}
+      </div>
+    @end
+
+
+    <table class="w-full border-collapse border border-gray-200">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-200 p-2 text-left">ID</th>
+          <th class="border border-gray-200 p-2 text-left">E-mail</th>
+          <th class="border border-gray-200 p-2 text-left">Akce</th>
+        </tr>
+      </thead>
+      <tbody>
+        @each(user in users)
+          <tr>
+            <td class="border border-gray-200 p-2">{{ user.id }}</td>
+            <td class="border border-gray-200 p-2">{{ user.email }}</td>
+            <td class="border border-gray-200 p-2">
+              <form action="{{ route('users.destroy', [user.id]) }}?_method=DELETE" method="POST" onsubmit="return confirm('Opravdu chcete smazat tohoto uživatele?');">
+                {{ csrfField() }}
+                <button type="submit" class="text-red-600 hover:underline">Smazat</button>
+              </form>
+            </td>
+          </tr>
+        @end
+      </tbody>
+    </table>
+  </div>
+@end
